@@ -1,6 +1,6 @@
-class CokieController < ApplicationController
+class CookieController < ApplicationController
   def index
-    @books = Cookie.all
+    @cookie = Cookie.all
 
     render json: @cookie
   end

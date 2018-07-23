@@ -18,7 +18,8 @@ curl "http://localhost:4741/recipes" \
       "step_A": "'"${A}"'",
       "step_B": "'"${B}"'",
       "step_C": "'"${C}"'",
-      "step_D": "'"${D}"'"
+      "step_D": "'"${D}"'",
+      "user_id": 1
     }
   }'
 
