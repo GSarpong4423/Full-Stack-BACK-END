@@ -26,15 +26,9 @@ ActiveRecord::Schema.define(version: 20180720182731) do
   create_table "recipes", force: :cascade do |t|
     t.bigint "user_id"
     t.string "recipe_title"
-    t.string "ingredient_one"
-    t.string "ingredient_two"
-    t.string "ingredient_three"
-    t.string "ingredient_four"
-    t.string "ingredient_five"
-    t.string "step_A"
-    t.string "step_B"
-    t.string "step_C"
-    t.string "step_D"
+    t.text "ingredients"
+    t.text "steps"
+    t.text "tips"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_recipes_on_user_id"

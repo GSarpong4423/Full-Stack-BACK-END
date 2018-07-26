@@ -1,4 +1,4 @@
-class RecipesController < ApplicationController
+class RecipesController < OpenReadController
   before_action :set_recipe, only: [:show, :update, :destroy]
 
   # GET /recipes
@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
 
   # POST /recipes
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
       render json: @recipe, status: :created, location: @recipe
@@ -46,6 +46,6 @@ class RecipesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def recipe_params
-      params.require(:recipe).permit(:user_id, :recipe_title, :ingredient_one, :ingredient_two, :ingredient_three, :ingredient_four, :ingredient_five, :step_A, :step_B, :step_C, :step_D)
+      params.require(:recipe).permit(:user_id, :recipe_title, :ingredients, :steps, :tips)
     end
 end
