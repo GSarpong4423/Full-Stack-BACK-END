@@ -1,4 +1,4 @@
-class RecipesController < OpenReadController
+class RecipesController < ProtectedController
   before_action :set_recipe, only: [:show, :update, :destroy]
 
   # GET /recipes
@@ -42,6 +42,10 @@ class RecipesController < OpenReadController
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
       @recipe = Recipe.find(params[:id])
+    end
+
+    def update_params
+      params.require(:recipe).permit(:user_id, :recipe_title)
     end
 
     # Only allow a trusted parameter "white list" through.
